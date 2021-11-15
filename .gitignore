@@ -7,3 +7,10 @@ __pycache__
 # Env
 venv/
 env/
+
+# Terraform
+*.terraform
+*.terraform.lock.hcl
+
+# Build
+*.zip
