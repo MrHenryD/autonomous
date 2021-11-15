@@ -1,0 +1,15 @@
+name: autonomous pipeline
+on: [push]
+jobs:
+  autonomous:
+    name: 'autonomous'
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+    - name: Run tests
+      run: |
+        echo "Running tests..."
