@@ -1,5 +1,5 @@
 data "archive_file" "autonomous_zip_package" {
-  type        = "zip"
+  type = "zip"
 
   source_dir  = "../../../autonomous"
   output_path = "autonomous.zip"

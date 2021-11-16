@@ -10,6 +10,27 @@ jobs:
         shell: bash
 
     steps:
-    - name: Run tests
+    - name: Check out repository code
+      uses: actions/checkout@v2
+
+    - name: Setup Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: "3.8"
+
+    - name: Install Python Packages
       run: |
-        echo "Running tests..."
+        pip install -r requirements.txt
+        pytest tests/
+
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v1
+      with:
+        terraform_version: 0.14.2
+    
+    - name: Terraform plan
+      run: |
+        cd terraform/resources/autonomous-us-east-2
+        terraform init
+        terraform fmt -check
+        terraform validate
